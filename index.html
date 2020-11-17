@@ -25,7 +25,7 @@
     </div>
 
     <script type="text/x-template" id="plan-template">
-         <div class="plan">
+         <div @click="select" class="plan" :class="{'active-plan': isSelected}">
             <div class="description">
                 <span class="title">
                     {{ name }}
@@ -36,7 +36,7 @@
 
     <script type="text/x-template" id="plan-picker-template">
         <div class="plans">
-            <plan-component v-for="plan in plans" :name="plan"></plan-component>
+            <plan-component v-for="plan in plans" key="plan" :name="plan" @select-event="selectPlan" :selected-plan="selectedPlan"></plan-component>
         </div>
     </script>
 
